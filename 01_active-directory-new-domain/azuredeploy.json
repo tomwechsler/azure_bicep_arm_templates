@@ -63,7 +63,7 @@
     },
     "virtualMachineName": {
       "type": "string",
-      "defaultValue": "adVM",
+      "defaultValue": "avddc",
       "maxLength": 15,
       "metadata": {
         "description": "Virtual machine name."

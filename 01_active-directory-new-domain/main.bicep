@@ -26,7 +26,7 @@ param location string = resourceGroup().location
 
 @description('Virtual machine name.')
 @maxLength(15)
-param virtualMachineName string = 'adVM'
+param virtualMachineName string = 'avddc'
 
 @description('Virtual network name.')
 param virtualNetworkName string = 'adVNET'
