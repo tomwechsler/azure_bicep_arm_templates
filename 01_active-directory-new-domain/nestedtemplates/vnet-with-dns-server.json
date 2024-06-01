@@ -14,18 +14,6 @@
         "description": "The address range of the new VNET in CIDR format"
       }
     },
-    "avdsubnetName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the subnet created in the new VNET"
-      }
-    },
-    "avdsubnetRange": {
-      "type": "string",
-      "metadata": {
-        "description": "The address range of the subnet created in the new VNET"
-      }
-    },
     "subnetName": {
       "type": "string",
       "metadata": {
@@ -66,14 +54,6 @@
         "dhcpOptions": {
           "dnsServers": "[parameters('DNSServerAddress')]"
         },
-        "avdsubnets": [
-          {
-            "name": "[parameters('avdsubnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('avdsubnetRange')]"
-            }
-          }
-        ],
         "subnets": [
           {
             "name": "[parameters('subnetName')]",

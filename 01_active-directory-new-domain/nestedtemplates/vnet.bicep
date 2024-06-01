@@ -10,12 +10,6 @@ param subnetName string
 @description('The address range of the subnet created in the new VNET')
 param subnetRange string
 
-@description('The name of the subnet created in the new VNET')
-param avdsubnetName string
-
-@description('The address range of the subnet created in the new VNET')
-param avdsubnetRange string
-
 @description('Location for all resources.')
 param location string
 
@@ -33,12 +27,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-07-01' = {
         name: subnetName
         properties: {
           addressPrefix: subnetRange
-        }
-      }
-      {
-        name: avdsubnetName
-        properties: {
-          addressPrefix: avdsubnetRange
         }
       }
     ]

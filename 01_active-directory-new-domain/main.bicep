@@ -32,7 +32,7 @@ param virtualMachineName string = 'avddc'
 param virtualNetworkName string = 'adVNET'
 
 @description('Virtual network address range.')
-param virtualNetworkAddressRange string = '10.0.0.0/16'
+param virtualNetworkAddressRange string = '10.90.0.0/16'
 
 @description('Load balancer front end IP address name.')
 param loadBalancerFrontEndIPName string = 'LBFE'
@@ -47,19 +47,13 @@ param inboundNatRulesName string = 'adRDP'
 param networkInterfaceName string = 'adNic'
 
 @description('Private IP address.')
-param privateIPAddress string = '10.0.0.4'
+param privateIPAddress string = '10.90.0.4'
 
 @description('Subnet name.')
 param subnetName string = 'adSubnet'
 
-@description('Subnet name.')
-param avdsubnetName string = 'avdSubnet'
-
 @description('Subnet IP range.')
-param subnetRange string = '10.0.0.0/24'
-
-@description('AVD Subnet IP range.')
-param avdsubnetRange string = '10.0.100.0/24'
+param subnetRange string = '10.90.0.0/24'
 
 @description('Subnet IP range.')
 param publicIPAddressName string = 'adPublicIP'
@@ -101,8 +95,6 @@ module VNet 'nestedtemplates/vnet.bicep' = {
     virtualNetworkAddressRange: virtualNetworkAddressRange
     subnetName: subnetName
     subnetRange: subnetRange
-    avdsubnetName: avdsubnetName
-    avdsubnetRange: avdsubnetRange
     location: location
   }
 }
@@ -268,8 +260,6 @@ module updateVNetDNS 'nestedtemplates/vnet-with-dns-server.bicep' = {
     virtualNetworkAddressRange: virtualNetworkAddressRange
     subnetName: subnetName
     subnetRange: subnetRange
-    avdsubnetName: avdsubnetName
-    avdsubnetRange: avdsubnetRange
     DNSServerAddress: [
       privateIPAddress
     ]
