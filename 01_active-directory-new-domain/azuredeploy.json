@@ -132,6 +132,20 @@
         "description": "Subnet IP range."
       }
     },
+    "avdsubnetName": {
+      "type": "string",
+      "defaultValue": "avdSubnet",
+      "metadata": {
+        "description": "Subnet name."
+      }
+    },
+    "avdsubnetRange": {
+      "type": "string",
+      "defaultValue": "10.0.100.0/24",
+      "metadata": {
+        "description": "AVD Subnet IP range."
+      }
+    },
     "publicIPAddressName": {
       "type": "string",
       "defaultValue": "adPublicIP",
@@ -366,6 +380,12 @@
           "subnetRange": {
             "value": "[parameters('subnetRange')]"
           },
+          "avdsubnetName": {
+            "value": "[parameters('subnetName')]"
+          },
+          "avdsubnetRange": {
+            "value": "[parameters('subnetRange')]"
+          },
           "location": {
             "value": "[parameters('location')]"
           }
@@ -391,6 +411,18 @@
               "type": "string",
               "metadata": {
                 "description": "The address range of the new VNET in CIDR format"
+              }
+            },
+            "avdsubnetName": {
+              "type": "string",
+              "metadata": {
+                "description": "The name of the subnet created in the new VNET"
+              }
+            },
+            "avdsubnetRange": {
+              "type": "string",
+              "metadata": {
+                "description": "The address range of the subnet created in the new VNET"
               }
             },
             "subnetName": {
@@ -424,6 +456,14 @@
                     "[parameters('virtualNetworkAddressRange')]"
                   ]
                 },
+                "avdsubnets": [
+                  {
+                    "name": "[parameters('avdsubnetName')]",
+                    "properties": {
+                      "addressPrefix": "[parameters('avdsubnetRange')]"
+                    }
+                  }
+                ],
                 "subnets": [
                   {
                     "name": "[parameters('subnetName')]",
@@ -453,6 +493,12 @@
           },
           "virtualNetworkAddressRange": {
             "value": "[parameters('virtualNetworkAddressRange')]"
+          },
+          "avdsubnetName": {
+            "value": "[parameters('avdsubnetName')]"
+          },
+          "avdsubnetRange": {
+            "value": "[parameters('avdsubnetRange')]"
           },
           "subnetName": {
             "value": "[parameters('subnetName')]"
@@ -490,6 +536,18 @@
               "type": "string",
               "metadata": {
                 "description": "The address range of the new VNET in CIDR format"
+              }
+            },
+            "avdsubnetName": {
+              "type": "string",
+              "metadata": {
+                "description": "The name of the subnet created in the new VNET"
+              }
+            },
+            "avdsubnetRange": {
+              "type": "string",
+              "metadata": {
+                "description": "The address range of the subnet created in the new VNET"
               }
             },
             "subnetName": {
@@ -532,6 +590,14 @@
                 "dhcpOptions": {
                   "dnsServers": "[parameters('DNSServerAddress')]"
                 },
+                "avdsubnets": [
+                  {
+                    "name": "[parameters('avdsubnetName')]",
+                    "properties": {
+                      "addressPrefix": "[parameters('avdsubnetRange')]"
+                    }
+                  }
+                ],
                 "subnets": [
                   {
                     "name": "[parameters('subnetName')]",
