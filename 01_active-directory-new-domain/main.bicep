@@ -268,6 +268,8 @@ module updateVNetDNS 'nestedtemplates/vnet-with-dns-server.bicep' = {
     virtualNetworkAddressRange: virtualNetworkAddressRange
     subnetName: subnetName
     subnetRange: subnetRange
+    avdsubnetName: avdsubnetName
+    avdsubnetRange: avdsubnetRange
     DNSServerAddress: [
       privateIPAddress
     ]
