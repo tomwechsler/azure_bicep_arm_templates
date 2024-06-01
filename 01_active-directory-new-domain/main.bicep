@@ -52,8 +52,14 @@ param privateIPAddress string = '10.90.0.4'
 @description('Subnet name.')
 param subnetName string = 'adSubnet'
 
+@description('Subnet name.')
+param avdsubnetName string = 'avdSubnet'
+
 @description('Subnet IP range.')
 param subnetRange string = '10.90.0.0/24'
+
+@description('AVD Subnet IP range.')
+param avdsubnetRange string = '10.100.0.0/24'
 
 @description('Subnet IP range.')
 param publicIPAddressName string = 'adPublicIP'
@@ -95,6 +101,8 @@ module VNet 'nestedtemplates/vnet.bicep' = {
     virtualNetworkAddressRange: virtualNetworkAddressRange
     subnetName: subnetName
     subnetRange: subnetRange
+    avdsubnetName: avdsubnetName
+    avdsubnetRange: avdsubnetRange
     location: location
   }
 }
