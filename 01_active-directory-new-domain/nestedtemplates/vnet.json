@@ -26,6 +26,18 @@
         "description": "The address range of the subnet created in the new VNET"
       }
     },
+    "avdsubnetName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the subnet created in the new VNET"
+      }
+    },
+    "avdsubnetRange": {
+      "type": "string",
+      "metadata": {
+        "description": "The address range of the subnet created in the new VNET"
+      }
+    },
     "location": {
       "type": "string",
       "metadata": {
@@ -45,6 +57,14 @@
             "[parameters('virtualNetworkAddressRange')]"
           ]
         },
+        "avdsubnets": [
+          {
+            "name": "[parameters('avdsubnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('avdsubnetRange')]"
+            }
+          }
+        ],
         "subnets": [
           {
             "name": "[parameters('subnetName')]",
