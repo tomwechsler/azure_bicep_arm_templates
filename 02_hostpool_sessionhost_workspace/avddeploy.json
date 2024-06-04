@@ -115,7 +115,8 @@
             "type": "string",
             "metadata": {
                 "description": "The location where the resources will be deployed."
-            }
+            },
+            "defaultValue": "westeurope"
         },
         "workSpaceName": {
             "type": "string",
@@ -211,7 +212,7 @@
             "metadata": {
                 "description": "Whether to create a new availability set for the VMs."
             },
-            "defaultValue": true
+            "defaultValue": false
         },
         "availabilitySetUpdateDomainCount": {
             "type": "int",
