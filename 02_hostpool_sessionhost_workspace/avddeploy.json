@@ -42,14 +42,14 @@
             "metadata": {
                 "description": "The description of the Hostpool to be created."
             },
-            "defaultValue": "Created by ARM template."
+            "defaultValue": ""
         },
         "hostpoolDiagnosticSettingsStorageAccount": {
             "type": "string",
             "metadata": {
                 "description": "The storage uri to put the diagnostic logs"
             },
-            "defaultValue": "Created by ARM template."
+            "defaultValue": ""
         },
         "hostpoolDiagnosticSettingsLogAnalyticsWorkspaceId": {
             "type": "string",
@@ -192,7 +192,7 @@
             "metadata": {
                 "description": "Select the availability options for the VMs."
             },
-            "defaultValue": "AvailabilitySet",
+            "defaultValue": "none",
             "allowedValues": [
                 "None",
                 "AvailabilitySet",
@@ -492,7 +492,8 @@
             "type": "string",
             "metadata": {
                 "description": "Hostpool token expiration time"
-            }
+            },
+            "defaultValue": "2024-06-03T14:44:18.566Z"
         },
         "hostpoolTags": {
             "type": "object",
