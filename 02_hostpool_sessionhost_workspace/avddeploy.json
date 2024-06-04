@@ -137,7 +137,7 @@
             "metadata": {
                 "description": "The workspace resource group Name."
             },
-            "defaultValue": "avd-hostpool-rg"
+            "defaultValue": ""
         },
         "isNewWorkspace": {
             "type": "bool",
@@ -267,7 +267,7 @@
             "metadata": {
                 "description": "The resource group of the session host VMs."
             },
-            "defaultValue": "avd-hostpool-rg"
+            "defaultValue": ""
         },
         "vmLocation": {
             "type": "string",
