@@ -6,47 +6,50 @@
             "type": "string",
             "metadata": {
                 "description": "The base URI where artifacts required by this template are located."
-            }
+            },
+            "defaultValue": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/armtemplates/Hostpool_1.0.02705.330/nestedTemplates/"
         },
         "artifactsLocation": {
             "type": "string",
             "metadata": {
                 "description": "The base URI where the Azure artifacts required by this template are located."
-            }
+            },
+            "defaultValue": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration_1.0.02705.330.zip"
         },
         "hciArtifactsLocation": {
             "type": "string",
             "metadata": {
                 "description": "The base URI where the Azure Stack HCI artifacts required by this template are located."
             },
-            "defaultValue": ""
+            "defaultValue": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/HCIScripts_1.0.02705.330/HciCustomScript.ps1"
         },
         "hostpoolName": {
             "type": "string",
             "metadata": {
                 "description": "The name of the Hostpool to be created."
-            }
+            },
+            "defaultValue": "pool1"
         },
         "hostpoolFriendlyName": {
             "type": "string",
             "metadata": {
                 "description": "The friendly name of the Hostpool to be created."
             },
-            "defaultValue": ""
+            "defaultValue": "The AVD Hostpool created by the ARM template."
         },
         "hostpoolDescription": {
             "type": "string",
             "metadata": {
                 "description": "The description of the Hostpool to be created."
             },
-            "defaultValue": ""
+            "defaultValue": "Created by ARM template."
         },
         "hostpoolDiagnosticSettingsStorageAccount": {
             "type": "string",
             "metadata": {
                 "description": "The storage uri to put the diagnostic logs"
             },
-            "defaultValue": ""
+            "defaultValue": "Created by ARM template."
         },
         "hostpoolDiagnosticSettingsLogAnalyticsWorkspaceId": {
             "type": "string",
@@ -119,28 +122,28 @@
             "metadata": {
                 "description": "The name of the workspace to be attach to new Applicaiton Group."
             },
-            "defaultValue": ""
+            "defaultValue": "Windows11"
         },
         "workspaceLocation": {
             "type": "string",
             "metadata": {
                 "description": "The location of the workspace."
             },
-            "defaultValue": ""
+            "defaultValue": "westeurope"
         },
         "workspaceResourceGroup": {
             "type": "string",
             "metadata": {
                 "description": "The workspace resource group Name."
             },
-            "defaultValue": ""
+            "defaultValue": "avd-hostpool-rg"
         },
         "isNewWorkspace": {
             "type": "bool",
             "metadata": {
                 "description": "True if the workspace is new. False if there is no workspace added or adding to an existing workspace."
             },
-            "defaultValue": false
+            "defaultValue": true
         },
         "allApplicationGroupReferences": {
             "type": "string",
@@ -153,14 +156,15 @@
             "type": "bool",
             "metadata": {
                 "description": "Whether to add applicationGroup to workspace."
-            }
+            },
+            "defaultValue": true
         },
         "administratorAccountUsername": {
             "type": "string",
             "metadata": {
                 "description": "A username in the domain that has privileges to join the session hosts to the domain. For example, 'vmjoiner@contoso.com'."
             },
-            "defaultValue": ""
+            "defaultValue": "tom@cloudtrain.tech"
         },
         "administratorAccountPassword": {
             "type": "securestring",
@@ -174,7 +178,7 @@
             "metadata": {
                 "description": "A username to be used as the virtual machine administrator account. The vmAdministratorAccountUsername and  vmAdministratorAccountPassword parameters must both be provided. Otherwise, domain administrator credentials provided by administratorAccountUsername and administratorAccountPassword will be used."
             },
-            "defaultValue": ""
+            "defaultValue": "tom"
         },
         "vmAdministratorAccountPassword": {
             "type": "securestring",
@@ -188,7 +192,7 @@
             "metadata": {
                 "description": "Select the availability options for the VMs."
             },
-            "defaultValue": "None",
+            "defaultValue": "AvailabilitySet",
             "allowedValues": [
                 "None",
                 "AvailabilitySet",
@@ -200,14 +204,14 @@
             "metadata": {
                 "description": "The name of availability set to be used when create the VMs."
             },
-            "defaultValue": ""
+            "defaultValue": "avdAvailabilitySet"
         },
         "createAvailabilitySet": {
             "type": "bool",
             "metadata": {
                 "description": "Whether to create a new availability set for the VMs."
             },
-            "defaultValue": false
+            "defaultValue": true
         },
         "availabilitySetUpdateDomainCount": {
             "type": "int",
@@ -262,14 +266,14 @@
             "metadata": {
                 "description": "The resource group of the session host VMs."
             },
-            "defaultValue": ""
+            "defaultValue": "avd-hostpool-rg"
         },
         "vmLocation": {
             "type": "string",
             "metadata": {
                 "description": "The location of the session host VMs."
             },
-            "defaultValue": ""
+            "defaultValue": "switzerlandnorth"
         },
         "vmExtendedLocation": {
             "type": "object",
@@ -283,14 +287,14 @@
             "metadata": {
                 "description": "The size of the session host VMs."
             },
-            "defaultValue": ""
+            "defaultValue": "Standard_D2s_v3"
         },
         "vmDiskSizeGB": {
             "type": "int",
             "metadata": {
                 "description": "The size of the session host VMs in GB. If the value of this parameter is 0, the disk will be created with the default size set in the image."
             },
-            "defaultValue": 0
+            "defaultValue": 128
         },
         "vmHibernate": {
             "type": "bool",
@@ -304,14 +308,14 @@
             "metadata": {
                 "description": "Number of session hosts that will be created and added to the hostpool."
             },
-            "defaultValue": 0
+            "defaultValue": 2
         },
         "vmNamePrefix": {
             "type": "string",
             "metadata": {
                 "description": "This prefix will be used in combination with the VM number to create the VM name. If using 'rdsh' as the prefix, VMs would be named 'rdsh-0', 'rdsh-1', etc. You should use a unique prefix to reduce name collisions in Active Directory."
             },
-            "defaultValue": ""
+            "defaultValue": "sh"
         },
         "vmImageType": {
             "type": "string",
@@ -329,14 +333,14 @@
             "metadata": {
                 "description": "(Required when vmImageType = Gallery) Gallery image Offer."
             },
-            "defaultValue": ""
+            "defaultValue": "windows-11"
         },
         "vmGalleryImagePublisher": {
             "type": "string",
             "metadata": {
                 "description": "(Required when vmImageType = Gallery) Gallery image Publisher."
             },
-            "defaultValue": ""
+            "defaultValue": "microsoftwindowsdesktop"
         },
         "vmGalleryImageHasPlan": {
             "type": "bool",
@@ -350,7 +354,7 @@
             "metadata": {
                 "description": "(Required when vmImageType = Gallery) Gallery image SKU."
             },
-            "defaultValue": ""
+            "defaultValue": "win11-23h2-avd"
         },
         "vmGalleryImageVersion": {
             "type": "string",
@@ -376,21 +380,21 @@
             "metadata": {
                 "description": "The VM disk type for the VM: HDD or SSD."
             },
-            "defaultValue": "StandardSSD_LRS"
+            "defaultValue": "Premium_LRS"
         },
         "existingVnetName": {
             "type": "string",
             "metadata": {
                 "description": "The name of the virtual network the VMs will be connected to."
             },
-            "defaultValue": ""
+            "defaultValue": "adVNET"
         },
         "existingSubnetName": {
             "type": "string",
             "metadata": {
                 "description": "The subnet the VMs will be placed in."
             },
-            "defaultValue": ""
+            "defaultValue": "adSubnet"
         },
         "loadBalancerBackendPoolId": {
             "type": "string",
@@ -404,7 +408,7 @@
             "metadata": {
                 "description": "The resource group containing the existing virtual network."
             },
-            "defaultValue": ""
+            "defaultValue": "avd-arm-rg"
         },
         "createNetworkSecurityGroup": {
             "type": "bool",
@@ -435,7 +439,8 @@
             ],
             "metadata": {
                 "description": "Set this parameter to Personal if you would like to enable Persistent Desktop experience. Defaults to false."
-            }
+            },
+            "defaultValue": "pooled"
         },
         "personalDesktopAssignmentType": {
             "type": "string",
@@ -494,7 +499,9 @@
             "metadata": {
                 "description": "The tags to be assigned to the hostpool"
             },
-            "defaultValue": {}
+            "defaultValue": {
+                "Project": "Cloud2026"
+            }
         },
         "applicationGroupTags": {
             "type": "object",
@@ -578,14 +585,14 @@
             "metadata": {
                 "description": "OUPath for the domain join"
             },
-            "defaultValue": ""
+            "defaultValue": "ou=sessionhosts,dc=cloudtrain,dc=tech"
         },
         "domain": {
             "type": "string",
             "metadata": {
                 "description": "Domain to join"
             },
-            "defaultValue": ""
+            "defaultValue": "cloudtrain.tech"
         },
         "aadJoin": {
             "type": "bool",
