@@ -6,7 +6,6 @@ products:
 - azure-resource-manager
 urlFragment: hostpool-sessionhost-workspace
 languages:
-- bicep
 - json
 ---
 # Create a Hostpool with a Session Host and a Workspace
