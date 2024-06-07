@@ -37,13 +37,6 @@
             },
             "defaultValue": "The AVD Hostpool created by the ARM template."
         },
-        "hostpoolDescription": {
-            "type": "string",
-            "metadata": {
-                "description": "The description of the Hostpool to be created."
-            },
-            "defaultValue": ""
-        },
         "hostpoolDiagnosticSettingsStorageAccount": {
             "type": "string",
             "metadata": {
@@ -813,7 +806,6 @@
         "applicationGroupReferencesArr": "[if(equals('',parameters('allApplicationGroupReferences')), variables('appGroupResourceId'), concat(split(parameters('allApplicationGroupReferences'),','), variables('appGroupResourceId')))]",
         "hostpoolProps": {
             "friendlyName": "[parameters('hostpoolFriendlyName')]",
-            "description": "[parameters('hostpoolDescription')]",
             "hostpoolType": "[parameters('hostpoolType')]",
             "personalDesktopAssignmentType": "[parameters('personalDesktopAssignmentType')]",
             "maxSessionLimit": "[parameters('maxSessionLimit')]",
