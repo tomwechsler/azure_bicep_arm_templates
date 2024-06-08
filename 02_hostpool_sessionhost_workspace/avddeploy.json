@@ -109,7 +109,7 @@
             "metadata": {
                 "description": "The location where the resources will be deployed."
             },
-            "defaultValue": "switzerlandnorth"
+            "defaultValue": "westeurope"
         },
         "workSpaceName": {
             "type": "string",
@@ -123,7 +123,7 @@
             "metadata": {
                 "description": "The location of the workspace."
             },
-            "defaultValue": "switzerlandnorth"
+            "defaultValue": "westeurope"
         },
         "workspaceResourceGroup": {
             "type": "string",
@@ -488,36 +488,6 @@
                 "description": "Hostpool token expiration time"
             },
             "defaultValue": "2024-06-03T14:44:18.566Z"
-        },
-        "hostpoolTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the hostpool"
-            },
-            "defaultValue": {
-                "Project": "Cloud2026"
-            }
-        },
-        "applicationGroupTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the application group"
-            },
-            "defaultValue": {}
-        },
-        "availabilitySetTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the availability set"
-            },
-            "defaultValue": {}
-        },
-        "workspaceTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the workspace"
-            },
-            "defaultValue": {}
         },
         "apiVersion": {
             "type": "string",
