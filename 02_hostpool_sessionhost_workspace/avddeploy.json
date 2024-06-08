@@ -489,6 +489,15 @@
             },
             "defaultValue": "2024-06-03T14:44:18.566Z"
         },
+        "hostpoolTags": {
+            "type": "object",
+            "metadata": {
+                "description": "The tags to be assigned to the hostpool"
+            },
+            "defaultValue": {
+                "Project": "Cloud2026"
+            }
+        },
         "apiVersion": {
             "type": "string",
             "metadata": {
@@ -815,6 +824,7 @@
             "apiVersion": "[parameters('apiVersion')]",
             "type": "Microsoft.DesktopVirtualization/hostpools",
             "location": "[parameters('location')]",
+            "tags": "[parameters('hostpoolTags')]",
             "identity": "[if(empty(parameters('identityType')), json('null'), json(concat('{\"type\": \"', parameters('identityType'), '\"}')))]",
             "properties": "[variables('hostpoolProps')]"
         },
