@@ -109,7 +109,7 @@
             "metadata": {
                 "description": "The location where the resources will be deployed."
             },
-            "defaultValue": "westeurope"
+            "defaultValue": "switzerlandnorth"
         },
         "workSpaceName": {
             "type": "string",
@@ -123,7 +123,7 @@
             "metadata": {
                 "description": "The location of the workspace."
             },
-            "defaultValue": "westeurope"
+            "defaultValue": "switzerlandnorth"
         },
         "workspaceResourceGroup": {
             "type": "string",
@@ -512,34 +512,6 @@
             },
             "defaultValue": {}
         },
-        "networkInterfaceTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the network interfaces"
-            },
-            "defaultValue": {}
-        },
-        "networkSecurityGroupTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the network security groups"
-            },
-            "defaultValue": {}
-        },
-        "virtualMachineTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the virtual machines"
-            },
-            "defaultValue": {}
-        },
-        "imageTags": {
-            "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the images"
-            },
-            "defaultValue": {}
-        },
         "workspaceTags": {
             "type": "object",
             "metadata": {
@@ -780,7 +752,6 @@
         }
     },
     "variables": {
-        "emptyArray": [],
         "createVMs": "[greater(parameters('vmNumberOfInstances'),0)]",
         "rdshPrefix": "[concat(parameters('vmNamePrefix'),'-')]",
         "vhds": "[concat('vhds','/', variables('rdshPrefix'))]",
@@ -1060,18 +1031,6 @@
                     "networkSecurityGroupRules": {
                         "value": "[parameters('networkSecurityGroupRules')]"
                     },
-                    "networkInterfaceTags": {
-                        "value": "[parameters('networkInterfaceTags')]"
-                    },
-                    "networkSecurityGroupTags": {
-                        "value": "[parameters('networkSecurityGroupTags')]"
-                    },
-                    "virtualMachineTags": {
-                        "value": "[parameters('virtualMachineTags')]"
-                    },
-                    "imageTags": {
-                        "value": "[parameters('imageTags')]"
-                    },
                     "hostpoolToken": {
                         "value": "[reference(parameters('hostpoolName')).registrationInfo.token]"
                     },
@@ -1186,12 +1145,6 @@
                     },
                     "location": {
                         "value": "[parameters('vmLocation')]"
-                    },
-                    "networkInterfaceTags": {
-                        "value": "[parameters('networkInterfaceTags')]"
-                    },
-                    "virtualMachineTags": {
-                        "value": "[parameters('virtualMachineTags')]"
                     },
                     "hostpoolToken": {
                         "value": "[reference(parameters('hostPoolName')).registrationInfo.token]"
