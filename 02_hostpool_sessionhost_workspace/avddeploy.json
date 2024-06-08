@@ -815,7 +815,6 @@
             "apiVersion": "[parameters('apiVersion')]",
             "type": "Microsoft.DesktopVirtualization/hostpools",
             "location": "[parameters('location')]",
-            "tags": "[parameters('hostpoolTags')]",
             "identity": "[if(empty(parameters('identityType')), json('null'), json(concat('{\"type\": \"', parameters('identityType'), '\"}')))]",
             "properties": "[variables('hostpoolProps')]"
         },
@@ -824,7 +823,6 @@
             "apiVersion": "[parameters('apiVersion')]",
             "type": "Microsoft.DesktopVirtualization/applicationgroups",
             "location": "[parameters('location')]",
-            "tags": "[parameters('applicationGroupTags')]",
             "properties": {
                 "hostpoolarmpath": "[resourceId('Microsoft.DesktopVirtualization/hostpools/', parameters('hostpoolName'))]",
                 "friendlyName": "Default Desktop",
@@ -851,7 +849,6 @@
                             "apiVersion": "[parameters('apiVersion')]",
                             "name": "[parameters('workSpaceName')]",
                             "type": "Microsoft.DesktopVirtualization/workspaces",
-                            "tags": "[parameters('workspaceTags')]",
                             "location": "[parameters('workspaceLocation')]",
                             "properties": {
                                 "applicationGroupReferences": "[variables('applicationGroupReferencesArr')]",
@@ -882,7 +879,6 @@
                             "type": "Microsoft.Compute/availabilitySets",
                             "name": "[parameters('availabilitySetName')]",
                             "location": "[parameters('vmLocation')]",
-                            "tags": "[parameters('availabilitySetTags')]",
                             "properties": {
                                 "platformUpdateDomainCount": "[parameters('availabilitySetUpdateDomainCount')]",
                                 "platformFaultDomainCount": "[parameters('availabilitySetFaultDomainCount')]"
